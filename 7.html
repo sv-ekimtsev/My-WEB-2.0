@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Caesar Cipher</title>
+  <style>
+    body {
+     background: #212121;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFD700;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+    }
+
+    img {
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    input[type="button"] {
+      background-color: rgb(0, 105, 3);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+      background-color: #370059;
+    }
+
+    #Chiper {
+      display: block;
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+  <script>
+    function Go() {
+      var result = document.getElementById("to_dechiper").value;
+      document.getElementById("Chiper").innerHTML = ceaserDeCipher(result);
+    }
+
+    function isLetter(str) {
+      return str.length === 1 && str.match(/[a-z]/i);
+    }
+
+    function ceaserDeCipher(str) {
+      var encoded = {
+        a: 'd', b: 'e', c: 'f',
+        d: 'g', e: 'h', f: 'i',
+        g: 'j', h: 'k', i: 'l',
+        j: 'm', k: 'n', l: 'o',
+        m: 'p', n: 'q', o: 'r',
+        p: 's', q: 't', r: 'u',
+        s: 'v', t: 'w', u: 'x',
+        v: 'y', w: 'z', x: 'a',
+        y: 'b', z: 'c'
+      };
+      str = str.toLowerCase();
+      var res = "";
+      for (var i = 0; i < str.length; i++) {
+        if (isLetter(str[i]) != null) {
+          res += encoded[str[i]];
+        } else {
+          res += str[i];
+        }
+      }
+      return res;
+    }
+  </script>
+</head>
+<body>
+  <div class="content">
+    <h1>CAESAR CIPHER</h1>
+    <img src="caesar.jpg" width="350" alt="Caesar Cipher">
+    <p id="demo"></p>
+    <form>
+      <input type="text" value="enter text" id="to_dechiper">
+      <input type="button" value="== Caesar DeCipher ==" onClick="Go()">
+      <span id="Chiper"></span>
+    </form>
+  </div>
+</body>
+</html>
+
