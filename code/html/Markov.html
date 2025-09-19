@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markov Chain Simulation</title>
+  <style>
+    body {
+      background: #212121; /* Background color */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFD700; /* Text color */
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #FFD700; /* Heading color */
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: left; /* Align content left within the max-width container */
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 10px;
+      vertical-align: middle;
+    }
+
+    input[type="text"] {
+      width: 50px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #0f8200;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #370059;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #4b0082;
+      max-width: 100%; /* Ensure output does not exceed window width */
+      overflow-x: auto; /* Add horizontal scroll if needed */
+    }
+  </style>
+  <script>
+    var myMC;
+    var r;
+
+    function MarkovChain(a00, a01, b10, b11) {
+      this.iJarA00 = a00;
+      this.iJarA01 = a01;
+      this.iJarB10 = b10;
+      this.iJarB11 = b11;
+    }
+
+    function Result(white, black, s) {
+      this.white = white;
+      this.black = black;
+      this.s = s;
+    }
+
+    function Read() {
+      myMC = new MarkovChain(50, 50, 20, 80);
+    }
+
+    function Write() {
+      var output = document.getElementById("output");
+      output.innerHTML = "";
+      output.innerHTML += "White: " + r.white + "<br>";
+      output.innerHTML += "Black: " + r.black + "<br>";
+      output.innerHTML += "s: " + r.s + "<br>";
+    }
+
+    function Run() {
+      var TextBoxJarA00 = document.getElementById("TextBoxJarA00").value;
+      var TextBoxJarA01 = document.getElementById("TextBoxJarA01").value;
+      var TextBoxJarB10 = document.getElementById("TextBoxJarB10").value;
+      var TextBoxJarB11 = document.getElementById("TextBoxJarB11").value;
+
+      myMC = new MarkovChain(parseInt(TextBoxJarA00), parseInt(TextBoxJarA01), parseInt(TextBoxJarB10), parseInt(TextBoxJarB11));
+      r = myMC.Run();
+      Write();
+    }
+
+    MarkovChain.prototype.JarA = function () {
+      var r = Math.random();
+      if (r < this.iJarA00 / 100) return 1;
+      return 2;
+    };
+
+    MarkovChain.prototype.JarB = function () {
+      var r = Math.random();
+      if (r < this.iJarB11 / 100) return 2;
+      return 1;
+    };
+
+    MarkovChain.prototype.Run = function () {
+      var i = 0;
+      var jarNo = 1; // Jar A-1 B-2
+      var white = 0;
+      var black = 0;
+      var s = "";
+
+      while (true) {
+        i++;
+        s += (jarNo - 1).toString();
+        if (jarNo === 1) {
+          white++;
+          jarNo = this.JarA();
+        } else {
+          black++;
+          jarNo = this.JarB();
+        }
+
+        if (i >= 1000) {
+          break;
+        }
+      }
+
+      var res = new Result(white, black, s);
+      return res;
+    };
+  </script>
+</head>
+<body>
+  <div class="content">
+    <h1>MARKOV CHAIN</h1>
+    <div>
+      <table>
+        <tr>
+          <td></td>
+          <td>
+            <input name="TextBoxJarA01" type="text" value="50" id="TextBoxJarA01" />
+            %
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <input name="TextBoxJarA00" type="text" value="50" id="TextBoxJarA00" />
+            %
+          </td>
+          <td><img alt="Markov Chain" src="Markov_Chain.jpg" width="200" /></td>
+          <td>
+            <input name="TextBoxJarB11" type="text" value="80" id="TextBoxJarB11" />
+            %
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input name="TextBoxJarB10" type="text" value="20" id="TextBoxJarB10" />
+            %
+          </td>
+          <td></td>
+        </tr>
+      </table>
+
+      <br><br>
+      <input name="TextBox_iSteps" type="text" value="1000" id="TextBox_iSteps" />
+      steps
+      <br><br>
+      <button onclick="Run()">Run</button>
+      <br><br>
+      <div id="output"></div>
+    </div>
+  </div>
+</body>
+</html>
