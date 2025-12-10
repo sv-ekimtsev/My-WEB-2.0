@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body, html {
+  margin: 3px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+/* Цвет фона для экранов шире 600px */
+@media (min-width: 600px) {
+  body {
+    background-color: #fae5a6;
+  }
+}
+
+/* Цвет фона для экранов уже 600px */
+@media (max-width: 599px) {
+  body {
+    background-color: white;
+  }
+}
+
+h1 {
+  color: blue;
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* вместо align: center; */
+}
+
+#container > div {
+  background-color: lightgray;
+  font-size: 20px;
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+  <h1>Ludovik Zamenhof</h1>
+  <img width="33%" src="../../resources/images/LZ.jpg">
+
+  <div id="container">
+    <div>Project 0</div>
+    <div>Project 1</div>
+    <div>Project 2</div>
+    <div>Project 3</div>
+    <div>Project 4</div>
+    <div>Project 5</div>
+  </div>
+</body>
+</html>
