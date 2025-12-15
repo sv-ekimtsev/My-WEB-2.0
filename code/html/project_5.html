@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 5 – querySelector</title>
+
+  <style>
+    body {
+      background: #212121;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFD700;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .content {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 40px;
+      margin: auto;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-title {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #212121;
+    }
+
+    .js-result h3 {
+      font-size: 26px;
+      color: #212121;
+      margin-bottom: 25px;
+      min-height: 32px;
+    }
+
+    .js-button {
+      padding: 12px 30px;
+      background: #FFD700;
+      color: #212121;
+      font-weight: bold;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .js-button:hover {
+      background: #e6c200;
+      transform: scale(1.05);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      font-size: 16px;
+      background: #FFD700;
+      color: #212121;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-btn:hover {
+      background: #e6c200;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+
+    <div style="position:absolute; top:20px; left:20px;">
+      <a href="index.html"
+         style="background-color:#FFD700;
+                color:#212121;
+                padding:8px 15px;
+                text-decoration:none;
+                border-radius:5px;
+                font-weight:bold;">
+        🏠 Home
+      </a>
+    </div>
+
+    <div class="project-title">Project 5. querySelector</div>
+
+    <div class="js-result">
+      <h3></h3>
+    </div>
+
+    <button class="js-button" onclick="Hello()">Click Here</button>
+
+    <br>
+
+    <a href="index.html" class="back-btn">← Back</a>
+  </div>
+
+  <script>
+    function Hello() {
+      document.querySelector('.js-result h3').innerHTML = "Hi, JavaScript";
+    }
+  </script>
+</body>
+</html>

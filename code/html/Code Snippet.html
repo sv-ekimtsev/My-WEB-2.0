@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Display</title>
+    <style>
+        body {
+            background: #212121;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff; /* Default text color */
+            text-align: left;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #FFD700; /* Heading color */
+        }
+        pre {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #4b0082; /* Code block text color */
+            overflow-x: auto; /* Ensure horizontal scroll on smaller screens */
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute; top: 20px; left: 20px; z-index: 1000;">
+        <a href="index.html" style="background-color: #FFD700; color: #212121; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em; transition: all 0.3s ease;">🏠 Home</a>
+    </div>
+    <h1>Code Snippet</h1>
+    <pre>
+using System;
+class Lb
+{
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.Write("Enter number:");
+            String s = Console.ReadLine();
+
+            uint x;
+            try
+            {
+                x = uint.Parse(s);
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine("Number is too big");
+                continue;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error type of enter");
+                continue;
+            }
+            double l = Math.Log(x, 2);
+            Console.WriteLine("Lb({0})={1}", x, l);
+        }
+    }
+}
+    </pre>
+</body>
+</html>

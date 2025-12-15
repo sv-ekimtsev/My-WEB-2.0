@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid and Bootstrap Grid Example</title>
+
+<!-- Подключаем Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<style>
+/* ===== CSS GRID EXAMPLE ===== */
+.grid {
+  background-color: lightgreen;
+  display: grid;
+  padding: 20px;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-columns: 250px 250px auto;
+}
+
+.grid-item {
+  background-color: lightgray;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ===== BOOTSTRAP GRID EXAMPLE ===== */
+.row > div {
+  padding: 8px;
+  background-color: lightskyblue;
+  border: 1px solid navy;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<h2>CSS Grid Layout Example</h2>
+<div class="grid">
+  <div class="grid-item">Column 1</div>
+  <div class="grid-item">Column 2</div>
+  <div class="grid-item">Column 3 (auto width)</div>
+</div>
+
+<hr>
+
+<h2>Bootstrap Grid System Example</h2>
+
+<!-- Пример 1: три колонки одинаковой ширины -->
+<div class="container">
+  <div class="row">
+    <div class="col-4"><a href="Part/1/">Part 1</a></div>
+    <div class="col-4"><a href="Part/2/">Part 2</a></div>
+    <div class="col-4"><a href="Part/3/">Part 3</a></div>
+  </div>
+</div>
+
+<br>
+
+<!-- Пример 2: три равные колонки в container-fluid -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"><a href="Part/1/">Part 1</a></div>
+    <div class="col-sm-4"><a href="Part/2/">Part 2</a></div>
+    <div class="col-sm-4"><a href="Part/3/">Part 3</a></div>
+  </div>
+</div>
+
+<br>
+
+<!-- Пример 3: две колонки по 6 (равные половины) -->
+<div class="container">
+  <div class="row">
+    <div class="col-6"><a href="Part/4/">Part 4</a></div>
+    <div class="col-6"><a href="Part/5/">Part 5</a></div>
+  </div>
+</div>
+
+</body>
+</html>
