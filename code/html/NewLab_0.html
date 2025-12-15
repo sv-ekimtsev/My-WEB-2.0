@@ -1,63 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAB – Responsive Layout</title>
 
-<style>
-body, html {
-  margin: 3px;
-  padding: 0px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-}
+  <style>
+    body {
+      background: #212121;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFD700;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
 
-/* Цвет фона для экранов шире 600px */
-@media (min-width: 600px) {
-  body {
-    background-color: #fae5a6;
-  }
-}
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #FFD700;
+    }
 
-/* Цвет фона для экранов уже 600px */
-@media (max-width: 599px) {
-  body {
-    background-color: white;
-  }
-}
+    .content {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      width: 80%;
+      max-width: 900px;
+      margin: auto;
+    }
 
-h1 {
-  color: blue;
-  text-align: center;
-}
+    img {
+      width: 33%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
 
-#container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* вместо align: center; */
-}
+    #container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
-#container > div {
-  background-color: lightgray;
-  font-size: 20px;
-  margin: 20px;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-}
-</style>
+    #container > div {
+      background-color: #212121;
+      color: #FFD700;
+      font-size: 20px;
+      margin: 15px;
+      padding: 20px;
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #container > div:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+
+    /* Responsive background behavior сохранён логически */
+    @media (max-width: 599px) {
+      img {
+        width: 60%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Ludovik Zamenhof</h1>
-  <img width="33%" src="../../resources/images/LZ.jpg">
+  <div class="content">
 
-  <div id="container">
-    <div>Project 0</div>
-    <div>Project 1</div>
-    <div>Project 2</div>
-    <div>Project 3</div>
-    <div>Project 4</div>
-    <div>Project 5</div>
+    <div style="position: absolute; top: 20px; left: 20px;">
+      <a href="index.html"
+         style="background-color: #FFD700;
+                color: #212121;
+                padding: 8px 15px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 0.9em;">
+        🏠 Home
+      </a>
+    </div>
+
+    <h1>Ludovik Zamenhof</h1>
+
+    <img src="../../resources/images/ludovik.png" alt="Ludovik Zamenhof">
+
+    <div id="container">
+      <div>Project 0</div>
+      <div>Project 1</div>
+      <div>Project 2</div>
+      <div>Project 3</div>
+      <div>Project 4</div>
+      <div>Project 5</div>
+    </div>
+
   </div>
 </body>
 </html>

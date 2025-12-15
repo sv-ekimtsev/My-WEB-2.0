@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 7 – Event Driven</title>
+
+  <style>
+    body {
+      background: #212121;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFD700;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .content {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 40px;
+      margin: auto;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-title {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #212121;
+    }
+
+    .date-display {
+      font-size: 26px;
+      margin: 25px 0;
+      font-weight: bold;
+      color: #212121;
+      min-height: 32px;
+    }
+
+    .go-btn {
+      padding: 12px 30px;
+      background: #FFD700;
+      color: #212121;
+      font-weight: bold;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .go-btn:hover {
+      background: #e6c200;
+      transform: scale(1.05);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      font-size: 16px;
+      background: #FFD700;
+      color: #212121;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-btn:hover {
+      background: #e6c200;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+
+    <div style="position:absolute; top:20px; left:20px;">
+      <a href="index.html"
+         style="background-color:#FFD700;
+                color:#212121;
+                padding:8px 15px;
+                text-decoration:none;
+                border-radius:5px;
+                font-weight:bold;">
+        🏠 Home
+      </a>
+    </div>
+
+    <div class="project-title">
+      Project 7. JS EVENT-DRIVEN PROGRAMMING
+    </div>
+
+    <h1 class="date-display"></h1>
+
+    <button onclick="Go()" class="go-btn">GO</button>
+
+    <br>
+
+    <a href="index.html" class="back-btn">← Back</a>
+  </div>
+
+  <script>
+    function Go() {
+      const date = new Date();
+      const y = date.getFullYear();
+      const m = date.getMonth() + 1;
+      const d = date.getDate();
+
+      document.querySelector(".date-display").innerHTML = `${y}.${m}.${d}`;
+      alert(date);
+    }
+  </script>
+</body>
+</html>

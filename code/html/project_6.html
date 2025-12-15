@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project 6 – OOP</title>
+
+  <style>
+    body {
+      background: #212121;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FFD700;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .content {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 40px;
+      margin: auto;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-title {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #212121;
+    }
+
+    .result {
+      font-size: 18px;
+      color: #212121;
+      margin: 25px 0;
+      min-height: 60px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .start-btn {
+      padding: 12px 30px;
+      background: #FFD700;
+      color: #212121;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .start-btn:hover {
+      background: #e6c200;
+      transform: scale(1.05);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      font-size: 16px;
+      background: #FFD700;
+      color: #212121;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-btn:hover {
+      background: #e6c200;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+
+    <div style="position:absolute; top:20px; left:20px;">
+      <a href="index.html"
+         style="background-color:#FFD700;
+                color:#212121;
+                padding:8px 15px;
+                text-decoration:none;
+                border-radius:5px;
+                font-weight:bold;">
+        🏠 Home
+      </a>
+    </div>
+
+    <div class="project-title">Project 6. ASP.NET OOP</div>
+
+    <div id="resultDisplay" class="result"></div>
+
+    <button class="start-btn" onclick="ViewModel()">Start</button>
+
+    <br>
+
+    <a href="index.html" class="back-btn">← Back</a>
+  </div>
+
+  <script>
+    class APerson {
+      Wash() {
+        return "Wet and Dry";
+      }
+    }
+
+    class AMan extends APerson {
+      Wash() {
+        return "Wet";
+      }
+    }
+
+    class AWoman extends APerson {
+      Wash() {
+        return "Dry";
+      }
+    }
+
+    function Model() {
+      let result = "";
+      const family = [];
+      family.push(new AMan());
+      family.push(new AWoman());
+
+      for (let i = 0; i < family.length; i++) {
+        result += `${i + 1}) ${family[i].Wash()}<br>`;
+      }
+      return result;
+    }
+
+    function View(result) {
+      document.getElementById("resultDisplay").innerHTML = result;
+    }
+
+    function ViewModel() {
+      const result = Model();
+      View(result);
+    }
+  </script>
+</body>
+</html>
